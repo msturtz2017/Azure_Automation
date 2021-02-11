@@ -1,0 +1,6 @@
+{      
+    "ENV": "int",
+    "keyvault":"int-keyvault",
+    "ResourceGroup":"int-aapdf",
+    "appinsight":"int-appinsight"
+}

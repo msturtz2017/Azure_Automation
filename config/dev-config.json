@@ -1,0 +1,25 @@
+{
+	"resourcegroup": "dev-AAPDF",
+	"enity": [
+		{
+			"Type": "keyvault",
+			"Settings": [
+				{
+					"Name": "int-AAPDFkeyvault",
+					"ARM": "$false",
+					"Action": "new"
+				}
+			]
+		},
+		{
+			"Type": "appinsight",
+			"Settings": [
+				{
+					"Name": "int-AAPDFappinsight",
+					"ARM": "$false",
+					"Action": "new"
+				}
+			]
+		}
+	]	
+}
