@@ -19,6 +19,9 @@
     },
     "apiManagementServiceName": {
       "value": ""
+    },
+    "rgName": {
+      "value": ""
     }
   }
 }

@@ -1,5 +1,5 @@
 parameters:
-- name: resourceGroupName
+- name: rgName
   displayName: "Resource Group"
 - name: subscriptionName
   displayName: "Subscription name"
@@ -33,7 +33,7 @@ jobs:
     inputs:
       ConnectedServiceName: ${{ parameters.connectedServiceName }}
       subscriptionName: ${{ parameters.subscriptionName }}
-      resourceGroupName: ${{ parameters.resourceGroupName }}
+      resourceGroupName: ${{ parameters.rgName }}
       apiManagementServiceName: ${{ parameters.apiManagementServiceName }}
       location: "West US 2"
       csmFile: ARMTemplate/AzureDeploy.json

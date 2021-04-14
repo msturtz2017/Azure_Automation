@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publisherEmail": {
@@ -52,11 +52,24 @@
       "metadata": {
         "description": "API service name"
       }      
+    },
+    "rgName": {
+      "type": "string",
+      "metadata": {
+      "description": "Name of the resourceGroup to create"
+      }
+    },
+    "rgLocation": {
+      "type": "string",
+      "defaultValue": "[deployment().location]",
+      "metadata": {
+        "description": "Location for the resourceGroup"
+      }
     }
   },
   "resources": [
     {
-      "apiVersion": "2017-03-01",
+      "apiVersion": "2019-12-01",
       "type": "Microsoft.ApiManagement/service",
       "name": "[parameters('apiManagementServiceName')]",           
       "location": "[parameters('location')]",
@@ -68,6 +81,16 @@
         "publisherEmail": "[parameters('publisherEmail')]",
         "publisherName": "[parameters('publisherName')]"
       }
-    }                      
+    },
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
+      "tags": {
+        "Note": "subscription level deployment"
+      },
+      "properties": {}
+    }
   ]
 }
