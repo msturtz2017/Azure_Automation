@@ -4,6 +4,9 @@
   "parameters": {    
     "apiManagementServiceName": {
       "value": ""
+    },
+    "rgName": {
+      "value": ""
     }
   }
 }

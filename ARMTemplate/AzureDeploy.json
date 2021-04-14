@@ -24,16 +24,6 @@
         "publisherEmail": "myDemo2021-13-04-16041314@example.com",
         "publisherName": "mr demo 2021-13-04-16043953"
       }
-    },
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
-      "name": "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f",
-      "location": "westus2",
-      "tags": {
-        "Note": "subscription level deployment"
-      },
-      "properties": {}
     }
   ]
 }
