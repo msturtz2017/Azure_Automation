@@ -45,16 +45,20 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "apiManagementServiceName":{
+      "type": "string",
+      "defaultValue": "[concat('apiservice', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "API service name"
+      }      
     }
-  },
-  "variables": {
-    "apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
       "apiVersion": "2017-03-01",
       "type": "Microsoft.ApiManagement/service",
-      "name": "[variables('apiManagementServiceName')]",           
+      "name": "[parameters('apiManagementServiceName')]",           
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('sku')]",

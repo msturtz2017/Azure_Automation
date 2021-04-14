@@ -16,6 +16,9 @@
     },
     "location": {
       "value": "westus2"
-    } 
+    },
+    "apiManagementServiceName": {
+      "value": ""
+    }
   }
 }
