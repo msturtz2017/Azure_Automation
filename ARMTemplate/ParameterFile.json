@@ -16,12 +16,6 @@
     },
     "location": {
       "value": "westus2"
-    },
-    "rgName": {
-      "value": ""
-    },
-    "rgLocation": {
-      "value": ""
-    }
+    } 
   }
 }
