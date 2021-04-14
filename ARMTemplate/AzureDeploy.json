@@ -1,86 +1,35 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "publisherEmail": {
-      "type": "string",
-      "minLength": 1,
-      "metadata": {
-        "description": "The email address of the owner of the service"
-      }
-    },
-    "publisherName": {
-      "type": "string",
-      "minLength": 1,
-      "metadata": {
-        "description": "The name of the owner of the service"
-      }
-    },
-    "sku": {
-      "type": "string",
-      "defaultValue": "Developer",
-      "allowedValues": [
-        "Developer",
-        "Standard",
-        "Premium"
-      ],
-      "metadata": {
-        "description": "The pricing tier of this API Management service"
-      }
-    },
-    "skuCount": {
-      "type": "string",
-      "defaultValue": "1",
-      "allowedValues": [
-        "1",
-        "2"
-      ],
-      "metadata": {
-        "description": "The instance size of this API Management service."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "westus2",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    },
+  "parameters": {  
     "apiManagementServiceName":{
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "cat",
       "metadata": {
         "description": "API service name"
       }      
-    },
-    "rgName": {
-      "type": "string",
-      "defaultValue": "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f",
-      "metadata": {
-      "description": "Name of the resourceGroup to create"
-      }
-    }  
+    }
   },
   "resources": [
     {
       "apiVersion": "2019-12-01",
       "type": "Microsoft.ApiManagement/service",
       "name": "[parameters('apiManagementServiceName')]",           
-      "location": "[parameters('location')]",
+      "location": "westus2",
       "sku": {
-        "name": "[parameters('sku')]",
-        "capacity": "[parameters('skuCount')]"
+        "name": "Developer",
+        "capacity": "1"
       },
       "properties": {
-        "publisherEmail": "[parameters('publisherEmail')]",
-        "publisherName": "[parameters('publisherName')]"
+        "publisherEmail": "myDemo2021-13-04-16041314@example.com",
+        "publisherName": "mr demo 2021-13-04-16043953"
       }
     },
     {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2020-06-01",
-      "name": "[parameters('rgName')]",
-      "location": "[parameters('location')]",
+      "name": "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f",
+      "location": "westus2",
       "tags": {
         "Note": "subscription level deployment"
       },
