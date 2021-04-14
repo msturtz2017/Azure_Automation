@@ -1,10 +1,4 @@
 parameters:
-- name: rgName
-  displayName: "Resource Group"
-- name: subscriptionName
-  displayName: "Subscription name"
-- name: connectedServiceName
-  displayName: "Connected Service name"
 - name: apiManagementServiceName
   displayName: "API Service name"
 trigger: none
@@ -31,14 +25,14 @@ jobs:
   - task: AzureResourceManagerTemplateDeployment@3
     displayName: 'ARM Template deployment: Resource Group scope'
     inputs:
-      ConnectedServiceName: ${{ parameters.connectedServiceName }}
-      subscriptionName: ${{ parameters.subscriptionName }}
-      resourceGroupName: ${{ parameters.rgName }}
+      ConnectedServiceName: "AAPDF-dev (16cc08e2-d55f-4f88-b496-822b15fa0cda)"
+      subscriptionName: "AAPDF-dev (16cc08e2-d55f-4f88-b496-822b15fa0cda)"
+      resourceGroupName: "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f"
       apiManagementServiceName: ${{ parameters.apiManagementServiceName }}
       location: "West US 2"
       csmFile: ARMTemplate/AzureDeploy.json
       csmParametersFile: ARMTemplate/ParameterFile.json
-      overrideParameters: -publisherEmail myDemo2021-13-04-16041314@example.com -publisherName "mr demo 2021-13-04-16043953" -sku "Developer" -skuCount "1" -location "westus2" 
+      overrideParameters: -location "westus2" -rgName "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f"
       deploymentMode: Complete
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
@@ -46,4 +40,3 @@ jobs:
     inputs:
       PathtoPublish: $(build.artifactstagingdirectory)
       TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
-...

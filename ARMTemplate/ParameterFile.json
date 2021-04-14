@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publisherEmail": {
-      "value": ""
+      "value": "myDemo2021-13-04-16041314@example.com "
     },
     "publisherName": {
-      "value": ""
+      "value": "mr demo 2021-13-04-16043953"
     },
     "sku": {
       "value": "Developer"
@@ -21,7 +21,7 @@
       "value": ""
     },
     "rgName": {
-      "value": ""
+      "value": "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f"
     }
   }
 }

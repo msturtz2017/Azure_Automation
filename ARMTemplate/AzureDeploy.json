@@ -55,17 +55,11 @@
     },
     "rgName": {
       "type": "string",
+      "defaultValue": "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f",
       "metadata": {
       "description": "Name of the resourceGroup to create"
       }
-    },
-    "rgLocation": {
-      "type": "string",
-      "defaultValue": "[deployment().location]",
-      "metadata": {
-        "description": "Location for the resourceGroup"
-      }
-    }
+    }  
   },
   "resources": [
     {
@@ -86,7 +80,7 @@
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
-      "location": "[parameters('rgLocation')]",
+      "location": "[parameters('location')]",
       "tags": {
         "Note": "subscription level deployment"
       },
