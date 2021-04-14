@@ -28,7 +28,7 @@ jobs:
       ConnectedServiceName: "AAPDF-dev (16cc08e2-d55f-4f88-b496-822b15fa0cda)"
       subscriptionName: "AAPDF-dev (16cc08e2-d55f-4f88-b496-822b15fa0cda)"
       resourceGroupName: "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f"
-      apiManagementServiceName: ${{ parameters.apiManagementServiceName }}
+      apiManagementServiceName: ${{ parameters.apiManagementServiceName }}      
       location: "West US 2"
       csmFile: ARMTemplate/AzureDeploy.json
       csmParametersFile: ARMTemplate/ParameterFile.json

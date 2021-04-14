@@ -8,6 +8,14 @@
       "metadata": {
         "description": "API service name"
       }      
+    },
+
+  "rgName":{
+      "type": "string",
+      "defaultValue": "cat",
+      "metadata": {
+        "description": "API service name"
+      }      
     }
   },
   "resources": [
