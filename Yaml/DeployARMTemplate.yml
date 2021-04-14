@@ -5,6 +5,9 @@ parameters:
   displayName: "Subscription name"
 - name: connectedServiceName
   displayName: "Connected Service name"
+- name: apiManagementServiceName
+  displayName: "API Service name"
+trigger: none
 resources:
   repositories:
   - repository: self
@@ -31,6 +34,7 @@ jobs:
       ConnectedServiceName: ${{ parameters.connectedServiceName }}
       subscriptionName: ${{ parameters.subscriptionName }}
       resourceGroupName: ${{ parameters.resourceGroupName }}
+      apiManagementServiceName: ${{ parameters.apiManagementServiceName }}
       location: "West US 2"
       csmFile: ARMTemplate/AzureDeploy.json
       csmParametersFile: ARMTemplate/ParameterFile.json

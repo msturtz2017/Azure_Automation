@@ -48,7 +48,7 @@
     },
     "apiManagementServiceName":{
       "type": "string",
-      "defaultValue": "[concat('apiservice', uniqueString(resourceGroup().id))]",
+      "defaultValue": "",
       "metadata": {
         "description": "API service name"
       }      
