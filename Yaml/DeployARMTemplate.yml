@@ -33,7 +33,7 @@ jobs:
       csmFile: ARMTemplate/AzureDeploy.json
       csmParametersFile: ARMTemplate/ParameterFile.json
       overrideParameters: -location "westus2" -rgName "demo-rg-633aee81-19b5-4ece-9369-65c85bca2c0f"
-      deploymentMode: Complete
+      deploymentMode: Validation
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     condition: succeededOrFailed()
