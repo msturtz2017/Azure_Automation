@@ -45,12 +45,6 @@
       "metadata": {
         "description": "Location for all resources."
       }
-    },
-      "rgName": {
-      "type": "string"
-    },
-      "rgLocation": {
-      "type": "string"
     }
   },
   "variables": {
@@ -70,13 +64,6 @@
         "publisherEmail": "[parameters('publisherEmail')]",
         "publisherName": "[parameters('publisherName')]"
       }
-    },                     
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
-      "location": "[parameters('rgLocation')]",
-      "name": "[parameters('rgName')]",
-            "properties": {}
-    }      
+    }                      
   ]
 }
