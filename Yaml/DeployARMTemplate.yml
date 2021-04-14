@@ -1,0 +1,43 @@
+parameters:
+  -rgName: resourceGroupName
+  displayName: "Resource Group"
+
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/dev
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    name: MSI1
+  steps:
+  - checkout: self
+    clean: true
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+    inputs:
+      SourceFolder: $(system.defaultworkingdirectory)
+      Contents: '**\ARMTemplate\**'
+      TargetFolder: $(build.artifactstagingdirectory)
+  - task: AzureResourceManagerTemplateDeployment@3
+    displayName: 'ARM Template deployment: Resource Group scope'
+    inputs:
+      ConnectedServiceName: b20616ee-cb45-4eec-87ef-0e32856b1831
+      subscriptionName: 16cc08e2-d55f-4f88-b496-822b15fa0cda
+      resourceGroupName: ${{ parameters.rgName }}
+      location: West US 2
+      csmFile: ARMTemplate/AzureDeploy.json
+      csmParametersFile: ARMTemplate/ParameterFile.json
+      overrideParameters: -publisherEmail myDemo2021-13-04-16041314@example.com -publisherName "mr demo 2021-13-04-16043953" -sku "Developer" -skuCount "1" -location "westus2" -rgName ${{ parameters.rgName }} -rgLocation westus2
+      deploymentMode: Complete
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
+...
