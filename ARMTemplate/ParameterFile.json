@@ -15,7 +15,7 @@
       "value": "1"
     },
     "location": {
-      "value": "[resourceGroup().location]"
+      "value": "westus2"
     },
     "rgName": {
       "value": ""
