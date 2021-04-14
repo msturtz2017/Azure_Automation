@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "publisherEmail": {
+      "value": "myDemo2021-13-04-16041314@example.com"
+    },
+    "publisherName": {
+      "value": "mr demo 2021-13-04-16043953"
+    },
+    "sku": {
+      "value": "Developer"
+    },
+    "skuCount": {
+      "value": "1"
+    },
+    "location": {
+      "value": "westus2"
+    }
+  }
+}
