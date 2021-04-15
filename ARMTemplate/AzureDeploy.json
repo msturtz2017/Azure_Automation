@@ -9,7 +9,7 @@
         "description": "API managment service name"
       }      
     },
-    "resourceGroup":{
+    "resourceGroupName":{
       "type": "string",
       "defaultValue": "default",
       "metadata": {

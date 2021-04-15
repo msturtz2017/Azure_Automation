@@ -5,7 +5,7 @@
     "apiManagementServiceName":{
       "value": ""
     },
-    "resourceGroup":{
+    "resourceGroupName":{
       "value":""
     },
     "location": {

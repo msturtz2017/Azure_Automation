@@ -4,6 +4,8 @@ parameters:
   displayName: "API Service name"
 - name: resourceGroupName
   displayName: "Resource group name"  
+- name: locationAPI
+  displayName: "Location of API service"  
 resources:
   repositories:
   - repository: self
@@ -31,7 +33,7 @@ jobs:
       scriptType: pscore
       scriptLocation: inlineScript
       scriptPath: ARMTemplate/AzureDeploy2.json
-      inlineScript: az deployment group create --resource-group "demo-rg-0be1236d-0659-4689-a43e-501f8e905293" --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953'
+      inlineScript: az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroup="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" locationAPI="{{parameters.locationAPI}}" 
       addSpnToEnvironment: true
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
