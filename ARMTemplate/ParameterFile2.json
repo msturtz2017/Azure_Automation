@@ -2,6 +2,15 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "apiManagementServiceName":{
+      "value": ""
+    },
+    "resourceGroup":{
+      "value":""
+    },
+    "location": {
+      "value": ""
+    },    
     "publisherEmail": {
       "value": "myDemo2021-13-04-16041314@example.com"
     },
@@ -13,9 +22,6 @@
     },
     "skuCount": {
       "value": "1"
-    },
-    "location": {
-      "value": "westus2"
     }
   }
 }

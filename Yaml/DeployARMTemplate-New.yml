@@ -1,0 +1,41 @@
+name: $(date:yyyyMMdd)$(rev:.r)
+parameters:
+- name: apiManagementServiceName
+  displayName: "API Service name"
+- name: resourceGroupName
+  displayName: "Resource group name"  
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/dev
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    name: MSI1
+  steps:
+  - checkout: self
+    clean: true
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+    inputs:
+      SourceFolder: $(system.defaultworkingdirectory)
+      Contents: '**\ARMTemplate\**'
+      TargetFolder: $(build.artifactstagingdirectory)
+  - task: AzureCLI@2
+    displayName: Azure CLI ARMTemplate/AzureDeploy2.json
+    inputs:
+      connectedServiceNameARM: b20616ee-cb45-4eec-87ef-0e32856b1831
+      scriptType: pscore
+      scriptLocation: inlineScript
+      scriptPath: ARMTemplate/AzureDeploy2.json
+      inlineScript: az deployment group create --resource-group "demo-rg-0be1236d-0659-4689-a43e-501f8e905293" --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953'
+      addSpnToEnvironment: true
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
