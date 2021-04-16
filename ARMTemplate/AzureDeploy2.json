@@ -2,6 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+   "apiManagementServiceName":{
+      "type": "string",
+      "defaultValue": "default",
+      "metadata": {
+        "description": "API managment service name"
+      }      
+    },
     "resourceGroup": {
       "type": "string",      
        "defaultValue": "",
@@ -55,7 +62,7 @@
     }
   },
   "variables": {
-    "apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]"
+    "apiManagementServiceName": "[parameters('apiManagementServiceName')]"
   },
   "resources": [
     {
