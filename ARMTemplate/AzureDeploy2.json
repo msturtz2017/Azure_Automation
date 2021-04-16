@@ -69,20 +69,18 @@
     }
   },
   "variables": {
-    "apiManagementServiceName": "[parameters('apiManagementServiceName')]",
-     "resourceTags":  
-     {
-       "name": "theTags",
-       "type": "object",
-        "defaultValue" : {
-          "Enviroment" : "Dev",
-          "Project" : "Tutorial",
-          "cat":"dog",
-          "Number":"100"
+    "apiManagementServiceName": "[parameters('apiManagementServiceName')]",    
+    "resourceTags": {
+      "type": "object",
+          "defaultValue": {
+              "Enviroment":"Dev",
+              "Project": "Tutorial",
+              "cat": "dog",
+              "Number": "100"
         }
-     }     
+     } 
   },
-
+  
   "resources": [
     {
       "type": "Microsoft.ApiManagement/service",
