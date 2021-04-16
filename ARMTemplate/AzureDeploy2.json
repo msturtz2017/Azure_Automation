@@ -59,6 +59,13 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },   
+     "locationAPI": {
+      "type": "string",
+      "defaultValue": "westus2",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
