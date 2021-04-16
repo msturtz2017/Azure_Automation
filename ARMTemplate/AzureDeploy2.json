@@ -69,14 +69,27 @@
     }
   },
   "variables": {
-    "apiManagementServiceName": "[parameters('apiManagementServiceName')]"
+    "apiManagementServiceName": "[parameters('apiManagementServiceName')]",
+     "resourceTags":  
+     {
+       "name": "theTags",
+       "type": "object",
+        "defaultValue" : {
+          "Enviroment" : "Dev",
+          "Project" : "Tutorial",
+          "cat":"dog",
+          "Number":"100"
+        }
+     }     
   },
+
   "resources": [
     {
       "type": "Microsoft.ApiManagement/service",
       "apiVersion": "2019-12-01",
       "name": "[variables('apiManagementServiceName')]",
       "location": "[parameters('location')]",
+      "tags" : "[variables('resourceTags')]",
       "sku": {
         "name": "[parameters('sku')]",
         "capacity": "[parameters('skuCount')]"
