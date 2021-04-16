@@ -33,8 +33,7 @@ jobs:
       scriptType: pscore
       scriptLocation: inlineScript
       scriptPath: ARMTemplate/AzureDeploy2.json
-      inlineScript: write-host "Hello location {{ parameters.location }}"
-        az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroup="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" locationAPI="{{ parameters.locationAPI }}" 
+      inlineScript: az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroup="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" locationAPI="${{ parameters.locationAPI }}" 
       addSpnToEnvironment: true
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
