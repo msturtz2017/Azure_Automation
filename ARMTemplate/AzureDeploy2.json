@@ -55,10 +55,10 @@
         "description": "Location for all resources."
       }
     },
-    // Resource group is at the subscription level no resource grup level
+    // Resource group is at the subscription level no resource group level
     "theDateTag": {
       "type": "string",
-      "defaultValue": "[utcNow('dd-MM-yyyy HH:mm:ss')]"
+      "defaultValue": "[utcNow('MM-dd-yyyy HH:mm:ss')]"
 
     },
     "resourceGroupName": {
@@ -91,7 +91,8 @@
       },
       "properties": {
         "publisherEmail": "[parameters('publisherEmail')]",
-        "publisherName": "[parameters('publisherName')]"
+        "publisherName": "[parameters('publisherName')]",
+        "virtualNetworkType": "Internal"
       }
     }
   ]
