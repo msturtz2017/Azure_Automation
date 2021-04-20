@@ -4,20 +4,14 @@
   "parameters": {
    "apiManagementServiceName":{
       "type": "string",
-      "defaultValue": "default",
+      "defaultValue": "defaultService",
       "metadata": {
         "description": "API managment service name"
       }      
     },
-    "resourceGroup": {
-      "type": "string",      
-       "defaultValue": "",
-       "metadata": {
-         "description": "Resource group of API service"
-       }
-    },
     "publisherEmail": {
       "type": "string",
+      "defaultValue": "Test@notused.com",
       "minLength": 1,
       "metadata": {
         "description": "The email address of the owner of the service"
@@ -25,6 +19,7 @@
     },
     "publisherName": {
       "type": "string",
+      "defaultValue":"Mr Test not used",
       "minLength": 1,
       "metadata": {
         "description": "The name of the owner of the service"
@@ -55,21 +50,27 @@
     },
     "location": {
       "type": "string",
-      "defaultValue": "westus2",
+      "defaultValue": "DefaultLocation",
       "metadata": {
         "description": "Location for all resources."
       }
-    },   
-     "locationAPI": {
+    },
+    // Resource group is at the subscription level no resource grup level
+    "theDateTag": {
       "type": "string",
-      "defaultValue": "westus2",
+      "defaultValue": "[utcNow('dd-MM-yyyy HH:mm:ss')]"
+
+    },
+    "resourceGroupName": {
+      "type": "string",
+      "defaultValue": "DefaultRG",
       "metadata": {
-        "description": "Location for all resources."
+        "description": "Resource group for APIM"
       }
-    }
-  },
+    }  
+  },  
   "variables": {
-    "apiManagementServiceName": "[parameters('apiManagementServiceName')]"  
+    "apiManagementServiceName": "[parameters('apiManagementServiceName')]"
   },
 
   "resources": [
@@ -77,11 +78,12 @@
       "type": "Microsoft.ApiManagement/service",
       "apiVersion": "2019-12-01",
       "name": "[variables('apiManagementServiceName')]",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]",      
       "tags" : {
         "cat": "dog",
         "test": "Test",
-        "myTest": "I hope this works"
+        "myTest": "I hope this works",        
+        "DeploymentType": "[parameters('theDateTag')]"
       },
       "sku": {
         "name": "[parameters('sku')]",

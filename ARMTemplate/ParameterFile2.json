@@ -2,7 +2,7 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "apiManagementServiceName":{
+    "apiManagementServiceName":{      
       "value": ""
     },
     "resourceGroupName":{
@@ -11,14 +11,11 @@
     "location": {
       "value": ""
     },    
-    "locationAPI": {
-      "value": ""
-    }, 
     "publisherEmail": {
-      "value": "myDemo2021-13-04-16041314@example.com"
+      "value": "Test@notused.com"
     },
     "publisherName": {
-      "value": "mr demo 2021-13-04-16043953"
+      "value": "Mr Test not used"
     },
     "sku": {
       "value": "Developer"
