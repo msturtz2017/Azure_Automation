@@ -79,11 +79,8 @@
       "apiVersion": "2019-12-01",
       "name": "[variables('apiManagementServiceName')]",
       "location": "[parameters('location')]",      
-      "tags" : {
-        "cat": "dog",
-        "test": "Test",
-        "myTest": "I hope this works",        
-        "DeploymentType": "[parameters('theDateTag')]"
+      "tags" : {         
+        "Info":"[parameters('theDateTag')]"
       },
       "sku": {
         "name": "[parameters('sku')]",
