@@ -80,7 +80,10 @@
       "name": "[variables('apiManagementServiceName')]",
       "location": "[parameters('location')]",      
       "tags" : {         
-        "Info":"[parameters('theDateTag')]"
+        "Info":"[parameters('theDateTag')]",
+        "Name" : "[parameters('apiManagementServiceName')]",
+        "ResourceGroup" : "[resourceGroup().name]"
+
       },
       "sku": {
         "name": "[parameters('sku')]",
