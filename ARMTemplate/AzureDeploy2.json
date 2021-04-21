@@ -27,7 +27,7 @@
     },
     "sku": {
       "type": "string",
-      "defaultValue": "Developer",
+      "defaultValue": "Premium",
       "allowedValues": [
         "Developer",
         "Standard",
