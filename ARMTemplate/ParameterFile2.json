@@ -24,7 +24,7 @@
       "value": "1"
     },
     "virtualNetworks_VNet1_externalid": {
-      "value": null
+      "value": "Internal"
     }
   }
 }
