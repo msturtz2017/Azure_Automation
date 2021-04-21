@@ -97,9 +97,9 @@
           "publisherEmail": "[parameters('publisherEmail')]",
           "publisherName": "[parameters('publisherName')]",
           "virtualNetworkConfiguration": {
-          "subnetResourceId": "[concat(parameters('virtualNetworks_VNet1_externalid'), '/subnets/Subnet1')]",
+            "subnetResourceId": "[concat(parameters('virtualNetworks_VNet1_externalid'), '/subnets/Subnet1')]"       
+        },
           "virtualNetworkType": "Internal"
-        }
       }
     }
   ]
