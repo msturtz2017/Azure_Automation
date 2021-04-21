@@ -67,6 +67,10 @@
       "metadata": {
         "description": "Resource group for APIM"
       }
+    },
+    "virtualNetworks_VNet1_externalid": {
+      "defaultValue": "/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourceGroups/APIM-rg_04-21-2021_09-52-59-10/providers/Microsoft.Network/virtualNetworks/VNet1",
+      "type": "String"
     }  
   },  
   "variables": {
@@ -90,9 +94,12 @@
         "capacity": "[parameters('skuCount')]"
       },
       "properties": {
-        "publisherEmail": "[parameters('publisherEmail')]",
-        "publisherName": "[parameters('publisherName')]",
-        "virtualNetworkType": "Internal"
+          "publisherEmail": "[parameters('publisherEmail')]",
+          "publisherName": "[parameters('publisherName')]",
+          "virtualNetworkConfiguration": {
+          "subnetResourceId": "[concat(parameters('virtualNetworks_VNet1_externalid'), '/subnets/Subnet1')]",
+          "virtualNetworkType": "Internal"
+        }
       }
     }
   ]

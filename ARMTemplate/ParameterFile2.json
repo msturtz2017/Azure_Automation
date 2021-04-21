@@ -2,15 +2,15 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "apiManagementServiceName":{      
+    "apiManagementServiceName": {
       "value": ""
     },
-    "resourceGroupName":{
-      "value":""
+    "resourceGroupName": {
+      "value": ""
     },
     "location": {
       "value": ""
-    },    
+    },
     "publisherEmail": {
       "value": "Test@notused.com"
     },
@@ -22,6 +22,9 @@
     },
     "skuCount": {
       "value": "1"
+    },
+    "virtualNetworks_VNet1_externalid": {
+      "value": null
     }
   }
 }
