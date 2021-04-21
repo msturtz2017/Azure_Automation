@@ -35,11 +35,11 @@ jobs:
       scriptPath: ARMTemplate/AzureDeploy2.json
       inlineScript: az deployment group create --resource-group   --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroupName="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" location="${{ parameters.location }}" 
       addSpnToEnvironment: true
-  - task: AzureCLI@2
-    displayName: "Update virtual network for internal"
-    inputs:
-      connectedServiceNameARM: b20616ee-cb45-4eec-87ef-0e32856b1831
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: az apim update --resource-group ${{ parameters.resourceGroupName }} --name ${{ parameters.apiManagementServiceName }} --virtual-network Internal
-      addSpnToEnvironment: true
+  # - task: AzureCLI@2
+  #   displayName: "Update virtual network for internal"
+  #   inputs:
+  #     connectedServiceNameARM: b20616ee-cb45-4eec-87ef-0e32856b1831
+  #     scriptType: pscore
+  #     scriptLocation: inlineScript
+  #     inlineScript: az apim update --resource-group ${{ parameters.resourceGroupName }} --name ${{ parameters.apiManagementServiceName }} --virtual-network Internal
+  #     addSpnToEnvironment: true
