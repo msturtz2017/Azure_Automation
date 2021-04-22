@@ -16,6 +16,10 @@ jobs:
   displayName: Agent job 1
   pool:
     name: MSI1
+  variables:
+    - group: APIM-Test
+    - name: cc-vnet
+      value: $(MyVnet)
   steps:
   - checkout: self
     clean: true
@@ -26,17 +30,6 @@ jobs:
       SourceFolder: $(system.defaultworkingdirectory)
       Contents: '**\ARMTemplate\**'
       TargetFolder: $(build.artifactstagingdirectory)
-
-  - task: AzureCLI@2
-    displayName: Testing 
-    enabled: false
-    inputs:
-      connectedServiceNameARM: b20616ee-cb45-4eec-87ef-0e32856b1831
-      scriptType: pscore
-      scriptLocation: inlineScript
-      addSpnToEnvironment: true    
-      inlineScript: $myVar = (((az network vnet list | ConvertFrom-Json) | Where-Object { $_.id -like '*MyVnet*' }).subnets.name); Write-host "The Varible is $myVar"
-
   - task: AzureCLI@2
     displayName: Azure CLI ARMTemplate/AzureDeploy2.json
     inputs:
@@ -45,5 +38,6 @@ jobs:
       scriptLocation: inlineScript
       addSpnToEnvironment: true    
       scriptPath: # ARMTemplate/AzureDeploy2.json
-      inlineScript: $myVar = (((az network vnet list | ConvertFrom-Json) | Where-Object { $_.id -like '*MyVnet*' }).subnets.name); Write-host "The Varible is $myVar"; #az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroupName="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" location="${{ parameters.location }}" 
-        
+      inlineScript: $myVar = (((az network vnet list | ConvertFrom-Json) | Where-Object { $_.id -like '*MyVnet*' }).subnets.name); Write-host "The Varible is $myVar"; Write-host "Another variable $TESTING_API"; #az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroupName="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" location="${{ parameters.location }}" 
+    env:
+      TESTING_API: $(cc-vnet)
