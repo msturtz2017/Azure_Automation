@@ -15,7 +15,7 @@ jobs:
 - job: Job_1
   displayName: Agent job 1
   pool:
-    name: MSI1
+    name: MSILinux1
   variables:
     - group: APIM-Test
     - name: cc-vnet
