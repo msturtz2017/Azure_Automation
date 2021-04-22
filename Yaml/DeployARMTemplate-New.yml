@@ -28,8 +28,7 @@ jobs:
       TargetFolder: $(build.artifactstagingdirectory)
 
   - task: AzureCLI@2
-    displayName: Azure CLI ARMTemplate/AzureDeploy2.json
-    enabled: false
+    displayName: Testing 
     inputs:
       connectedServiceNameARM: b20616ee-cb45-4eec-87ef-0e32856b1831
       scriptType: pscore
