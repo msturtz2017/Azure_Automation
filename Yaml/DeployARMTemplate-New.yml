@@ -38,7 +38,7 @@ jobs:
       scriptLocation: inlineScript
       addSpnToEnvironment: true    
       scriptPath: # ARMTemplate/AzureDeploy2.json
-      inlineScript: $myVar = (((az network vnet list | ConvertFrom-Json) | Where-Object { $_.id -like '*MyVnet*' }).subnets.name); Write-host "The Varible is $myVar"; [Environment]::GetEnvironmentVariables(); #az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroupName="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" location="${{ parameters.location }}" 
+      inlineScript: $myVar = (((az network vnet list | ConvertFrom-Json) | Where-Object { $_.id -like "*$TESTING_API*" }).subnets.name); Write-host "The Varible is $myVar"; [Environment]::GetEnvironmentVariables(); #az deployment group create --resource-group ${{ parameters.resourceGroupName }} --name Test-1c86b6eb-fca9-4b2d-acea-69de05ffda9f --template-file ARMTemplate/AzureDeploy2.json --parameters publisherEmail='myDemo2021-13-04-16041314@example.com' publisherName='mr demo 2021-13-04-16043953' resourceGroupName="${{ parameters.resourceGroupName }}" apiManagementServiceName="${{ parameters.apiManagementServiceName }}" location="${{ parameters.location }}" 
     env:
       MY_ACCESS_TOKEN: (System.AccessToken)
       TESTING_API: $(CC_VNET)
