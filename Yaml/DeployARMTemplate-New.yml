@@ -6,20 +6,16 @@ parameters:
   displayName: "Location of API service"  
 - name: resourceGroupName
   displayName: "Resource group name"  
-resources:
-  repositories:
-  - repository: self
-    type: git
-    ref: refs/heads/dev
 jobs:
 - job: Job_1
   displayName: Agent job 1
   pool:
+    trigger: none
     name: MSILinux1
   variables:
     - group: APIM-Test
     - name: CC_VNET
-      value: $(cc-vnet)
+      value: $(cc-vnet)70
   steps:
   - checkout: self
     clean: true
