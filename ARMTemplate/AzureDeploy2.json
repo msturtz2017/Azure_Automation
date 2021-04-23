@@ -55,7 +55,6 @@
         "description": "Location for all resources."
       }
     },
-    // Resource group is at the subscription level no resource group level
     "theDateTag": {
       "type": "string",
       "defaultValue": "[utcNow('MM-dd-yyyy HH:mm:ss')]"
@@ -67,15 +66,14 @@
       "metadata": {
         "description": "Resource group for APIM"
       }
-    },
-    "virtualNetwork_externalid": {
-      "defaultValue": "DefaultVnet",
-      "type": "String"
-    }  
+    }
   },  
   "variables": {
-    "apiManagementServiceName": "[parameters('apiManagementServiceName')]"
-  },
+    "apiManagementServiceName": "[parameters('apiManagementServiceName')]",
+    "vnet_name":"MyVnet_vn","vnet_subnet_name":"MyVnet_SN"
+    ,"vnet_subnet_id":"[concat('/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourceGroups/',parameters('resourceGroupName')
+    ,'/providers/Microsoft.Network/virtualNetworks/',variables('vnet_name'), '/subnets/',variables('vnet_subnet_name'))]"
+  }, 
 
   "resources": [
     {
@@ -97,7 +95,7 @@
           "publisherEmail": "[parameters('publisherEmail')]",
           "publisherName": "[parameters('publisherName')]",
           "virtualNetworkConfiguration": {
-            "subnetResourceId": "[concat(parameters('virtualNetwork_externalid'), '/subnets/Subnet1')]"       
+            "subnetResourceId": "[variables('vnet_subnet_id')]"       
         },
           "virtualNetworkType": "Internal"
       }
