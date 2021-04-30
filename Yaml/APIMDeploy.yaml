@@ -18,9 +18,9 @@ jobs:
     inputs:
       SourceFolder: $(system.defaultworkingdirectory)
       Contents: |  
-       '**/ARMTemplate/**'
-       '**/Scripts/**'
-       '**/DemoAPI/**'
+       **\ARMTemplate\**
+       **\Scripts\**
+       **\DemoAPI\**
       TargetFolder: $(build.artifactstagingdirectory)
 
 # - task: AzurePowerShell@5
