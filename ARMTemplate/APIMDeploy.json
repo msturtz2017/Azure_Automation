@@ -2,12 +2,12 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-   "apiManagementServiceName":{
+    "apiManagementServiceName": {
       "type": "string",
       "defaultValue": "defaultService",
       "metadata": {
         "description": "API managment service name"
-      }      
+      }
     },
     "publisherEmail": {
       "type": "string",
@@ -19,7 +19,7 @@
     },
     "publisherName": {
       "type": "string",
-      "defaultValue":"Mr Test not used",
+      "defaultValue": "Mr Test not used",
       "minLength": 1,
       "metadata": {
         "description": "The name of the owner of the service"
@@ -27,7 +27,7 @@
     },
     "sku": {
       "type": "string",
-      "defaultValue": "Premium",
+      "defaultValue": "Developer",
       "allowedValues": [
         "Developer",
         "Standard",
@@ -47,7 +47,7 @@
       "metadata": {
         "description": "The instance size of this API Management service."
       }
-    },    
+    },
     "location": {
       "type": "string",
       "defaultValue": "DefaultLocation",
@@ -66,38 +66,44 @@
       "metadata": {
         "description": "Resource group for APIM"
       }
+    },
+    "resourceGroupNameVNET": {
+      "type": "string",
+      "defaultValue": "DefaultRG",
+      "metadata": {
+        "description": "Resource group for APIM"
+      }
     }
-  },  
+  },
   "variables": {
     "apiManagementServiceName": "[parameters('apiManagementServiceName')]",
-    "vnet_name":"MyVnet_vn","vnet_subnet_name":"MyVnet_SN"
-    ,"vnet_subnet_id":"[concat('/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourceGroups/',parameters('resourceGroupName')
+    "vnet_name": "cool-tst-nonprod-east2-vn",
+    "vnet_subnet_name": "cool-tst-noprod-east2-SN",
+    "vnet_subnet_id": "[concat('/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourceGroups/',parameters('resourceGroupNameVNET')
     ,'/providers/Microsoft.Network/virtualNetworks/',variables('vnet_name'), '/subnets/',variables('vnet_subnet_name'))]"
-  }, 
-
+  },
   "resources": [
     {
       "type": "Microsoft.ApiManagement/service",
       "apiVersion": "2019-12-01",
       "name": "[variables('apiManagementServiceName')]",
-      "location": "[parameters('location')]",      
-      "tags" : {         
-        "Info":"[parameters('theDateTag')]",
-        "Name" : "[parameters('apiManagementServiceName')]",
-        "ResourceGroup" : "[resourceGroup().name]"
-
+      "location": "[parameters('location')]",
+      "tags": {
+        "Info": "[parameters('theDateTag')]",
+        "Name": "[parameters('apiManagementServiceName')]",
+        "ResourceGroup": "[resourceGroup().name]"
       },
       "sku": {
         "name": "[parameters('sku')]",
         "capacity": "[parameters('skuCount')]"
       },
       "properties": {
-          "publisherEmail": "[parameters('publisherEmail')]",
-          "publisherName": "[parameters('publisherName')]",
-          "virtualNetworkConfiguration": {
-            "subnetResourceId": "[variables('vnet_subnet_id')]"       
+        "publisherEmail": "[parameters('publisherEmail')]",
+        "publisherName": "[parameters('publisherName')]",
+        "virtualNetworkConfiguration": {
+          "subnetResourceId": "[variables('vnet_subnet_id')]"
         },
-          "virtualNetworkType": "Internal"
+        "virtualNetworkType": "External"
       }
     }
   ]

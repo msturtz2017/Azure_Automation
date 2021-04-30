@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "I-Love-Jessica"
+        },
+        "type": {
+            "value": "Web"
+        },
+        "regionId": {
+            "value":  "westus2"
+        },
+        "requestSource": {
+            "value":  "CustomDeployment"  
+                },
+        "resourceGroup": {
+            "value":  "Test"
+        }
+    }
+}

@@ -6,10 +6,13 @@
       "value": ""
     },
     "resourceGroupName": {
-      "value": ""
+      "value": "cool-tst-akw-east2-rg"
+    },
+    "resourceGroupNameVNET": {
+      "value": "cool-tst-nonprod-east2-rg"
     },
     "location": {
-      "value": ""
+      "value": "eastus2"
     },
     "publisherEmail": {
       "value": "Test@notused.com"
@@ -22,9 +25,6 @@
     },
     "skuCount": {
       "value": "1"
-    },
-    "virtualNetworks_VNet1_externalid": {
-      "value": "Internal"
     }
   }
 }

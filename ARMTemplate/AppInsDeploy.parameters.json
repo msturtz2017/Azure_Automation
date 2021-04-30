@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "Cool-AppIns"
+        },
+        "type": {
+            "value": "web"
+        },
+        "regionId": {
+            "value": "westus2"
+        },
+        "requestSource": {
+            "value": "CustomDeployment"
+        },
+        "workspaceResourceId": {
+            "value": "/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourcegroups/defaultresourcegroup-wus2/providers/microsoft.operationalinsights/workspaces/defaultworkspace-16cc08e2-d55f-4f88-b496-822b15fa0cda-wus2"
+        }
+    }
+}

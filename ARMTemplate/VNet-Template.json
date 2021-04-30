@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetName": {
+            "defaultValue": "VNet",
+            "type": "String",
+            "metadata": {
+                "description": "VNet name"
+            }
+        },
+        "vnetAddressPrefix": {
+            "defaultValue": "10.0.0.0/16",
+            "type": "String",
+            "metadata": {
+                "description": "Address prefix"
+            }
+        },
+        "subnetPrefix": {
+            "defaultValue": "10.0.0.0/24",
+            "type": "String",
+            "metadata": {
+                "description": "Subnet 1 Prefix"
+            }
+        },
+        "subnetName": {
+            "defaultValue": "Subnet1",
+            "type": "String",
+            "metadata": {
+                "description": "Subnet 1 Name"
+            }
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "String",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-05-01",
+            "name": "[parameters('vnetName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('vnetAddressPrefix')]"
+                    ]
+                }
+            },
+            "resources": [
+                {
+                    "type": "subnets",
+                    "apiVersion": "2020-05-01",
+                    "name": "[parameters('subnetName')]",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[parameters('vnetName')]"
+                    ],
+                    "properties": {
+                        "addressPrefix": "[parameters('subnetPrefix')]"
+                    }
+                }
+            ]
+        }
+    ]
+}

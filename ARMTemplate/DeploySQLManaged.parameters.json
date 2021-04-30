@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "managedInstanceName": {
+            "value": "ABC-SQL-Server" 
+        },
+        "administratorLogin": {
+            "value": "sqllogin" 
+        },
+        "administratorLoginPassword": {
+            "value": "" 
+        },
+        "location": {
+            "value": "westus2" 
+        },
+        "virtualNetworkName": {
+            "value": "ABC-SQL-Server-VNET"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetName": {
+            "value": "ManagedInstance"
+        },
+        "subnetPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "skuName": {
+            "value": "GP_Gen5"
+        },
+        "vCores": {
+            "value": 8
+        },
+        "storageSizeInGB": {
+            "value": 32
+        },
+        "licenseType": {
+            "value": "LicenseIncluded"
+        }
+    }
+}
