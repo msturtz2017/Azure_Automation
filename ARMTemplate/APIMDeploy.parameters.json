@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "apiManagementServiceName": {
-      "value": ""
+      "value": "Default"
     },
     "resourceGroupName": {
       "value": "cool-tst-akw-east2-rg"

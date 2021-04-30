@@ -76,7 +76,6 @@
     }
   },
   "variables": {
-    "apiManagementServiceName": "[parameters('apiManagementServiceName')]",
     "vnet_name": "cool-tst-nonprod-east2-vn",
     "vnet_subnet_name": "cool-tst-noprod-east2-SN",
     "vnet_subnet_id": "[concat('/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourceGroups/',parameters('resourceGroupNameVNET')
@@ -86,7 +85,7 @@
     {
       "type": "Microsoft.ApiManagement/service",
       "apiVersion": "2019-12-01",
-      "name": "[variables('apiManagementServiceName')]",
+      "name": "[parameters('apiManagementServiceName')]",
       "location": "[parameters('location')]",
       "tags": {
         "Info": "[parameters('theDateTag')]",
