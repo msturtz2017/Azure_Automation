@@ -20,6 +20,7 @@ jobs:
       Contents: |  
        '**\ARMTemplate\**'
        '**\Scripts\**'
+       '**\DemoAPI\**'
       TargetFolder: $(build.artifactstagingdirectory)
 
 # - task: AzurePowerShell@5
