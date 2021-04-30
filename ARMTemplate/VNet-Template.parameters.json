@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vnetName": {
-            "value": "cool-tst-nonprod-east2-vn"
+            "value": "cool-tst-nonprod-b-east2-vn"
         },
         "vnetAddressPrefix": {
             "value": "10.0.0.0/16"
@@ -12,7 +12,7 @@
             "value": "10.0.0.0/24"
         },
         "subnetName": {
-            "value": "cool-tst-noprod-east2-SN"
+            "value": "cool-tst-noprod-b-east2-SN"
         },
         "location": {
             "value": "eastus2" 

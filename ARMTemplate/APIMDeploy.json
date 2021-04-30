@@ -76,8 +76,8 @@
     }
   },
   "variables": {
-    "vnet_name": "cool-tst-nonprod-east2-vn",
-    "vnet_subnet_name": "cool-tst-noprod-east2-SN",
+    "vnet_name": "cool-tst-nonprod-b-east2-vn",
+    "vnet_subnet_name": "cool-tst-noprod-b-east2-SN",
     "vnet_subnet_id": "[concat('/subscriptions/16cc08e2-d55f-4f88-b496-822b15fa0cda/resourceGroups/',parameters('resourceGroupNameVNET')
     ,'/providers/Microsoft.Network/virtualNetworks/',variables('vnet_name'), '/subnets/',variables('vnet_subnet_name'))]"
   },
