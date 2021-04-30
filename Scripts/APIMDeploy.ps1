@@ -1,6 +1,6 @@
 
 $APIMRG = "cool-tst-akw-east2-rg"
-$VNETRG = "cool-tst-nonprod-east2-rg"
+$VNETRG = "cool-tst-nonprod-b-east2-rg"
 $RGs = @($VNETRG,$APIMRG)
 
 foreach ($RG in $RGs) {
