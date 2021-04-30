@@ -22,12 +22,13 @@ jobs:
             **\Scripts\**
             **\DemoAPI\**
           TargetFolder: $(build.artifactstagingdirectory)
-      - task: PowerShell@2
-        displayName: "PowerShell Script"
+      - task: AzureCLI@2
+        displayName: 'Azure CLI Scripts/APIMDeploy.ps1'
         inputs:
-          targetType: filePath
-          filePath: ./Scripts/APIMDeploy.ps1
-          pwsh: true
+          azureSubscription: 'AAPDF-dev (16cc08e2-d55f-4f88-b496-822b15fa0cda)'
+          scriptType: pscore
+          scriptPath: Scripts/APIMDeploy.ps1
+          addSpnToEnvironment: true
 # - task: AzurePowerShell@5
 #   displayName: 'Azure PowerShell script: FilePath'
 #   inputs:
