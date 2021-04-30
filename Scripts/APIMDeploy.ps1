@@ -54,7 +54,7 @@ if(($APMStatus.properties.provisioningState) -ne "Succeeded")
 $specFormat ="OpenAPI"
 $specURL ="https://conferenceapi.azurewebsites.net/?format=json"
 Write-Host "The APIM deployment of $APIM was successfull" -ForegroundColor Green
+$APIJSONPath = "$BasePath\DemoAPI"
+$specFilePath = "$APIJSONPath\DemoApi.json"
 
-$APIStatus = "$(az apim api import --path "/" --resource-group "$APIMRG" --service-name "$APIM" --specification-format "$specFormat" --specification-url "$specURL")" | ConvertFrom-Json
-
-Write-Host ""
+$APIStatus = "$(az apim api import --path "/" --resource-group "$APIMRG" --service-name "$APIM" --specification-format "$specFormat" --specification-path "$specFilePath")" | ConvertFrom-Json
